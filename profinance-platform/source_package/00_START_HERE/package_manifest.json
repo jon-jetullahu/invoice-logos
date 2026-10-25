@@ -1,0 +1,92 @@
+[
+  {
+    "file": "00_START_HERE/README.md",
+    "bytes": 3002,
+    "sha256": "ddb1ebb55752222a23a88bbb8554f370b54cbd6cba8b72e5a5e2ae36ce6f39f3"
+  },
+  {
+    "file": "01_Source_Documents/Facilization_CBS_Budgetary_Offer_2026-10-23.pdf",
+    "bytes": 854820,
+    "sha256": "ebafbd0ce85440da8935bb0887a1e6dadca2ca869d4adbff5ac41d183bd624c1"
+  },
+  {
+    "file": "02_Management_Data/management_notes.md",
+    "bytes": 1163,
+    "sha256": "ecf75f4d398906ad97654a30e481efe93d985e8e9ab1379591715ed461a39152"
+  },
+  {
+    "file": "02_Management_Data/profinance_baseline.csv",
+    "bytes": 1188,
+    "sha256": "beff9420a1039073bfc8f134ad4b19629c8d95db0d3664ea30e48eb61969e63f"
+  },
+  {
+    "file": "03_Vendor_Costs/facilization_cbs_offer.csv",
+    "bytes": 1112,
+    "sha256": "30b8811a5641efc8985915716672862e7569f63d349a1a94a57a95c525a58472"
+  },
+  {
+    "file": "03_Vendor_Costs/facilization_scope.md",
+    "bytes": 1637,
+    "sha256": "247f563ce13f46b0f1ae7440f17c578759a03ba188f5172c69d306c4d482bc2b"
+  },
+  {
+    "file": "03_Vendor_Costs/visa_card_estimates.csv",
+    "bytes": 2759,
+    "sha256": "912eb396fa7bbfe97dcc050ae0b3340bcaa3c53531cc9c49a8e7342a0b99ab44"
+  },
+  {
+    "file": "03_Vendor_Costs/visa_source_and_scenarios.md",
+    "bytes": 1403,
+    "sha256": "831aa91831af782a4a7a667addf385bbddfbcd71b8128a4650e31e2d51fd3f04"
+  },
+  {
+    "file": "04_Public_Research/bank_report_collection_manifest.csv",
+    "bytes": 1024,
+    "sha256": "3f186560f115d52582c4190d8a1e192241bc38eb473133f1d6a71eedfc9db2c1"
+  },
+  {
+    "file": "04_Public_Research/collection_status.md",
+    "bytes": 1525,
+    "sha256": "fed88069441683e8a25bfc3a738146065a3e7c64347ec65f1ec9727f0d95362b"
+  },
+  {
+    "file": "04_Public_Research/source_registry.csv",
+    "bytes": 3710,
+    "sha256": "54640cfa340e883b4b20dad5f21aa0d6dcf6737e92221883db8fdd934feeeb43"
+  },
+  {
+    "file": "05_Model_Specification/assumption_register.csv",
+    "bytes": 1497,
+    "sha256": "2d8d2b3f9c70f51ce714eb0e75ffc3f572d9a2125cb9588edc82b0af955d9cf0"
+  },
+  {
+    "file": "05_Model_Specification/calculation_engine.md",
+    "bytes": 3422,
+    "sha256": "1cf9e4a838ff45239af0e369a286caad10b554b0754ac7efb701aad1e7c534ac"
+  },
+  {
+    "file": "05_Model_Specification/data_contract.md",
+    "bytes": 1130,
+    "sha256": "45ec1e0a282f7a8fcaf8d8ae263e31904126902ac83637d6fc9e978660c30ab9"
+  },
+  {
+    "file": "06_Claude_Prompts/CLAUDE_MASTER_PROMPT.md",
+    "bytes": 7318,
+    "sha256": "59243bd752b57b64bcb8f5f049c26e74ab4599bd259e7857c9fc780129147798"
+  },
+  {
+    "file": "06_Claude_Prompts/CLAUDE_SHORT_START.md",
+    "bytes": 477,
+    "sha256": "9eaa14117ed5f238888f5327df1fc37498f16aed475d1017986ec8f59a9de44a"
+  },
+  {
+    "file": "07_Quality_Assurance/acceptance_tests.md",
+    "bytes": 2403,
+    "sha256": "49da502fb915a186ea45b981f73f949586ec98dc958da2fd04d548b308873e63"
+  },
+  {
+    "file": "07_Quality_Assurance/missing_information_and_risks.md",
+    "bytes": 1139,
+    "sha256": "1378e624851b952d32b72be5c310f2851dfaf5957f7ec9eaba104834df16a873"
+  }
+]

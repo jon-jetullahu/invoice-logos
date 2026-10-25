@@ -1,0 +1,11 @@
+observation_id,institution_id,metric_id,original_label,period_end,stock_or_flow,value,unit,currency,source_document_id,source_page,source_type,audit_status,restatement_version,extraction_method,confidence,notes
+OBS-0001,pribank,total_assets,Assets,2025-12-31,STOCK_END_OF_PERIOD,155605141,units_as_published,EUR_ASSUMED,DOC-SEENEWS-PRI,,SECONDARY_PROFILE,UNKNOWN,1,search_snippet,LOW,Currency and unit not stated by source; plausibly EUR. Must be replaced by audited FS figure.
+OBS-0002,pribank,net_profit,Profit,2025-12-31,FLOW_DURING_PERIOD,102934,units_as_published,EUR_ASSUMED,DOC-SEENEWS-PRI,,SECONDARY_PROFILE,UNKNOWN,1,search_snippet,LOW,Near break-even in 4th operating year (if figure correct).
+OBS-0003,pribank,employees,Employees,2025-12-31,STOCK_END_OF_PERIOD,176,count,,DOC-SEENEWS-PRI,,SECONDARY_PROFILE,UNKNOWN,1,search_snippet,LOW,Key staffing benchmark for a de-novo Kosovo bank.
+OBS-0004,procredit_ks,net_profit,Net profit,2025-12-31,FLOW_DURING_PERIOD,26.8,EUR_million,EUR,DOC-SEENEWS-PCB-2025,,SECONDARY_NEWS,UNKNOWN,1,search_snippet,MEDIUM,
+OBS-0005,procredit_ks,net_profit,Net profit,2024-12-31,FLOW_DURING_PERIOD,29.1,EUR_million,EUR,DOC-SEENEWS-PCB-2025,,SECONDARY_NEWS,UNKNOWN,1,search_snippet,MEDIUM,Comparative figure reported in 2025 article.
+OBS-0006,procredit_ks,total_assets,Total assets,2024-12-31,STOCK_END_OF_PERIOD,1.3,EUR_billion,EUR,DOC-PROC-2024-AR,,SEARCH_SNIPPET_OF_ANNUAL_REPORT,AUDITED_UNCONFIRMED,1,search_snippet,MEDIUM,Rounded.
+OBS-0007,procredit_ks,roa,Return on assets,2024-12-31,RATIO,0.025,fraction,,DOC-PROC-2024-AR,,SEARCH_SNIPPET_OF_ANNUAL_REPORT,AUDITED_UNCONFIRMED,1,search_snippet,MEDIUM,
+OBS-0008,bpb,net_profit,Net profit,2025-12-31,FLOW_DURING_PERIOD,13.2,EUR_million,EUR,DOC-SEENEWS-BPB-2025,,SECONDARY_NEWS,UNKNOWN,1,search_snippet,MEDIUM,
+OBS-0009,bpb,net_profit,Net profit,2024-12-31,FLOW_DURING_PERIOD,11.3,EUR_million,EUR,DOC-SEENEWS-BPB-2025,,SECONDARY_NEWS,UNKNOWN,1,search_snippet,MEDIUM,
+OBS-0010,bkt_ks,total_assets,Total assets (nearly),2025-12-31,STOCK_END_OF_PERIOD,1.6,EUR_billion,EUR,DOC-BKT-2025-AR,,SECONDARY_NEWS,UNKNOWN,1,search_snippet,LOW,Euromoney award text: 'nearly EUR 1.6 billion'; market share 15.8% (period unclear).

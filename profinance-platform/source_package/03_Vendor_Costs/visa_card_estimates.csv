@@ -1,0 +1,17 @@
+﻿cost_id,component,currency,min_amount,max_amount,charge_basis,scenario,source_status,notes
+visa_issue_principal,Visa issuing principal licence,USD,80000,80000,one_time_assumed_unconfirmed,issuing_principal,PRIVATE_PRELIMINARY_ESTIMATE,Not official offer.
+visa_issue_affiliate,Visa issuing affiliate licence,USD,50000,50000,one_time_assumed_unconfirmed,issuing_affiliate,PRIVATE_PRELIMINARY_ESTIMATE,Confirm affiliate vs Associate membership.
+visa_acquire_principal,Visa acquiring principal licence,USD,125000,125000,one_time_assumed_unconfirmed,acquiring_principal,PRIVATE_PRELIMINARY_ESTIMATE,POS and e-commerce acquiring.
+visa_acquire_affiliate,Visa acquiring affiliate licence,USD,50000,50000,one_time_assumed_unconfirmed,acquiring_affiliate,PRIVATE_PRELIMINARY_ESTIMATE,May need sponsoring principal.
+visa_quarterly_fixed,Visa quarterly fixed fee,USD,5000,5000,quarterly,all_visa_scenarios,PRIVATE_PRELIMINARY_ESTIMATE,Whether per licence/institution/activity unknown.
+visa_project_first_5m,Visa project months 1-5,USD,2500,2500,monthly_first_five_months,visa_implementation,PRIVATE_PRELIMINARY_ESTIMATE,Whether charges cease after project completion unknown.
+visa_project_after_5m,Visa project after month 5,USD,5000,5000,monthly_from_sixth_month,visa_implementation,PRIVATE_PRELIMINARY_ESTIMATE,Project duration unknown.
+visa_configuration,Possible configuration fee,USD,5000,5000,one_time_possible,visa_implementation,PRIVATE_PRELIMINARY_ESTIMATE,May not apply.
+visa_bin,BIN fee,USD,1500,3000,per_bin_assumed_unconfirmed,visa_implementation,PRIVATE_PRELIMINARY_ESTIMATE,Quantity and recurrence unknown.
+issuer_processor,Processor setup and certification,USD,50000,200000,project_estimate,issuing,PRIVATE_EXPERIENCE_ESTIMATE,Recurring processing costs missing.
+card_management,Card management/issuing platform,USD,50000,200000,project_estimate,issuing,PRIVATE_EXPERIENCE_ESTIMATE,May overlap processor/CBS; deduplicate.
+gateway,Payment gateway e-commerce,USD,20000,100000,project_estimate,acquiring_ecommerce,PRIVATE_EXPERIENCE_ESTIMATE,Visa Cybersource one option.
+card_production,Card production setup and initial plastic,USD,10000,50000,project_estimate,issuing,PRIVATE_EXPERIENCE_ESTIMATE,Unit card cost and replacement missing.
+acquiring_platform,Large-scale acquiring platform,USD,,,unquoted,acquiring,UNPRICED,"Comment suggests up to roughly twice some other platform cost, but no precise scope/denominator; DO NOT hardcode 2x."
+fraud_tools,Fraud/risk tooling,USD,,,unquoted,issuing_or_acquiring,UNPRICED,May be offered by Visa or processor.
+variable_scheme_fees,Visa business/transaction fees,USD,,,volume_based_unquoted,all_visa_scenarios,UNPRICED,"Need pricing by domestic/international, interchange and network category."

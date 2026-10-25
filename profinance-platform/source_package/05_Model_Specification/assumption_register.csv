@@ -1,0 +1,16 @@
+metric_id,description,unit,default_value,source_type,required_for,blocking_if_missing
+loan_yield,Financing yield by product,annual_pct,,UNSOURCED_ASSUMPTION,interest_revenue,yes
+deposit_cost,Weighted deposit funding cost,annual_pct,,UNSOURCED_ASSUMPTION,interest_expense,yes
+credit_loss_rate,Expected credit loss by vintage,annual_pct,,UNSOURCED_ASSUMPTION,profitability,yes
+operating_headcount,Actual employees by function,count,,UNSOURCED_ASSUMPTION,staff_opex,yes
+salary_cost,Monthly gross employer cost,EUR,,UNSOURCED_ASSUMPTION,staff_opex,yes
+opening_cash,Actual opening cash and bank balances,EUR,,UNSOURCED_ASSUMPTION,balance_sheet,yes
+opening_liabilities,Actual opening liabilities,EUR,,UNSOURCED_ASSUMPTION,balance_sheet,yes
+eligible_regulatory_capital,Capital recognized under CBK rules,EUR,,UNSOURCED_ASSUMPTION,regulatory,yes
+risk_weighting,CBK effective-dated risk weights,rule_set,,CBK_OFFICIAL,regulatory,yes
+liquidity_rules,Applicable CBK liquidity methodology,rule_set,,CBK_OFFICIAL,regulatory,yes
+fx_usd_eur,USD to EUR conversion,EUR_per_USD,,UNSOURCED_ASSUMPTION,consolidated_costs,yes
+visa_transaction_count,Monthly card transactions,count,,UNSOURCED_ASSUMPTION,card_costs,yes
+visa_variable_fees,Scheme and processor fee tariff,fee_schedule,,UNSOURCED_ASSUMPTION,card_costs,yes
+cbs_subscription_start,Contract billing start,date,,VENDOR_ESTIMATE,technology_cashflow,yes
+loan_repayment_schedule,Principal amortization assumptions,curve,,UNSOURCED_ASSUMPTION,portfolio_stock,yes

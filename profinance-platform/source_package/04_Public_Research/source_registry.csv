@@ -1,0 +1,23 @@
+﻿publisher,title,url,category,collection_note
+CBK,Bank licensing information and manual,https://bqk-kos.org/mbikeqyrja-financiare/licencimi-i-institucioneve-financiare/?lang=en,REGULATORY,official landing page; verify latest requirements
+CBK,Law No. 08/L-304 on Banks (2026 publication),https://bqk-kos.org/wp-content/uploads/2026/02/LAW_NO._08_L-304_ON_BANKS.pdf,REGULATORY,"Check commencement, transitional provisions, implementing rules"
+CBK,Bank regulations index,https://bqk-kos.org/korniza-ligjore/rregulloret/banka/?lang=en,REGULATORY,Check effective versions and amendments
+CBK,Capital adequacy regulation (2018 text),https://bqk-kos.org/wp-content/uploads/2024/11/F-Regulation-on-Bank-Capital-Adequacy_final_eng_21.11.18.pdf?lang=en,REGULATORY_HISTORICAL,Do not assume fully current after 2026 law
+CBK,Banking-sector historical time series,https://bqk-kos.org/statistikat/serite-kohore/?lang=en,SECTOR_DATA,"Includes bank assets, income, loans, deposits, interest, employment, payments"
+CBK,Monthly financial stability indicators,https://bqk-kos.org/stabiliteti-financiar/indikatoret-e-stabilitetit-financiar/?lang=en,SECTOR_DATA,Monthly publications from 2014
+CBK,Monthly statistical bulletin,https://bqk-kos.org/publikimet/buletini-mujor-statistikor/,SECTOR_DATA,Archive reportedly extends to 2001
+CBK,Annual reports,https://bqk-kos.org/rreth-bqk/raporti-vjetor/?lang=en,SECTOR_DATA,CBK annual reports are NOT individual banks' audits
+PriBank,PriBank official reporting archive,https://cms.pribank-ks.com/,BANK_REPORTS,Priority recent entrant; inspect annual 2022-2025 and quarterly through 2026
+PriBank,PriBank 2024 annual report direct PDF,https://cms.pribank-ks.com/wp-content/uploads/2025/05/Pribank-Annual-Report-2024-1-1.pdf,BANK_REPORTS,"Direct PDF verified via web index, not downloaded into package"
+PriBank,PriBank 2025 annual report,https://cms.pribank-ks.com/sr/2026/04/29/annual-report-2025/,BANK_REPORTS,Download attachment from archive; verify audit and year
+Raiffeisen Kosovo,Annual reports,https://www.raiffeisen-kosovo.com/en/about-us/reports-and-announcements/raportet-vjetore.html,BANK_REPORTS,Check historical availability
+ProCredit Kosovo,Annual reports,https://www.procreditbank-kos.com/eng/for-us/financial-publications/annual-reports/,BANK_REPORTS,Check historical availability
+NLB Kosovo,Annual reports,https://www.nlb-kos.com/en/per-banken/raportet-vjetore,BANK_REPORTS,Check historical availability
+TEB Kosovo,Financial reports,https://www.teb-kos.com/raportet-financiare/,BANK_REPORTS,Check historical availability
+BKT Kosovo,Audited financial reports,https://bkt-ks.com/institucionet-financiare/raportet-financiare/raportet-e-audituara/,BANK_REPORTS,Check historical availability
+BPB,Bank annual report 2025,https://www.bpbbank.com/wp-content/uploads/2026/04/BPB_ANNUAL_REPORT_2025.pdf,BANK_REPORTS,Locate full historical archive
+Banka Ekonomike,Annual reports,https://bekonomike.com/en/Raportet-Vjetore,BANK_REPORTS,Check historical availability
+Ziraat Bank Kosovo,Financial statements,https://ziraatbank-kosova.com/en/financial-statements,BANK_REPORTS,Check historical availability
+Credins Bank Kosovo,Annual reports,https://bankacredins-ks.com/en/about-us/reports-and-announcements/reports/annual-reports/,BANK_REPORTS,Check historical availability
+Türkiye İş Bankası Kosovo,Historical data discovery pending,https://bqk-kos.org/statistikat/serite-kohore/?lang=en,BANK_REPORTS_MISSING,Locate exact Kosovo branch legal entity and public annual statements; do not assume full separate bank archive
+Kosovo Banking Association,Publications,https://bankassoc-kos.com/publications/,BANK_BENCHMARKS,Quarterly/monthly member financial summaries

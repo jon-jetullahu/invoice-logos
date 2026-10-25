@@ -1,0 +1,6 @@
+src/data/generated/
+node_modules/
+dist/
+data/scenarios.db*
+collection/.pytest_cache/
+__pycache__/

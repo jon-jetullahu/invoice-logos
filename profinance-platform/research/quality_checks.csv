@@ -1,0 +1,7 @@
+check,subject,result,detail
+assets_eq_liabilities_plus_equity,pribank|2025-12-31|1,NOT_TESTABLE,A/L/E not all extracted
+assets_eq_liabilities_plus_equity,procredit_ks|2025-12-31|1,NOT_TESTABLE,A/L/E not all extracted
+assets_eq_liabilities_plus_equity,procredit_ks|2024-12-31|1,NOT_TESTABLE,A/L/E not all extracted
+assets_eq_liabilities_plus_equity,bpb|2025-12-31|1,NOT_TESTABLE,A/L/E not all extracted
+assets_eq_liabilities_plus_equity,bpb|2024-12-31|1,NOT_TESTABLE,A/L/E not all extracted
+assets_eq_liabilities_plus_equity,bkt_ks|2025-12-31|1,NOT_TESTABLE,A/L/E not all extracted

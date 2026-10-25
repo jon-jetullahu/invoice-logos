@@ -1,0 +1,8 @@
+﻿metric_id,label,unit,baseline,year_1,year_2,year_3,data_class,notes
+ordinary_nominal_share_capital,Current ordinary nominal share capital,EUR,11400000,,,,MANAGEMENT_PROVIDED,Not a substitute for verified equity or regulatory capital.
+active_customer_accounts,Active customer accounts,count,,5000,10000,15000,MANAGEMENT_PROVIDED,Assumed year-end stock; customer count may differ from account count.
+internal_system_users,Banking system users,count,,30,40,50,MANAGEMENT_PROVIDED_INTERPRETATION,Interpretation of user as internal system seats; CONFIRM in UI. Not necessarily employee headcount.
+gross_financing_portfolio,Financing/loan portfolio,EUR,,20000000,40000000,60000000,MANAGEMENT_PROVIDED,Assumed year-end gross portfolio; not originations.
+leasing_share,Leasing share of financing portfolio,fraction,,0.20,0.20,0.20,MANAGEMENT_PROVIDED,Classification/accounting treatment to be specified.
+goods_financing_share,Goods financing/credit share,fraction,,0.80,0.80,0.80,MANAGEMENT_PROVIDED,Do not presume conventional interest or Islamic financing contract terms.
+customer_deposits,Customer deposits,EUR,,8000000,28000000,48000000,MANAGEMENT_PROVIDED,Assumed year-end stock.
