@@ -391,7 +391,8 @@ export function aggregateYears(months: MonthRow[]): YearRow[] {
     const avgEarning = avg((prevEnd?.grossLoans ?? 0) + (prevEnd?.tbills ?? 0), end.grossLoans + end.tbills);
     const costs = row.opex + row.depreciation;
     row.roa = year > 0 && avgAssets > 0 ? row.netIncome / avgAssets : null;
-    row.roe = year > 0 && avgEq > 0 && startEq > 0 ? row.netIncome / avgEq : null;
+    // ROE only when the denominator is reliable: positive equity at both ends and ≥ 4% of average assets
+    row.roe = year > 0 && startEq > 0 && end.equity > 0 && avgEq >= 0.04 * avgAssets ? row.netIncome / avgEq : null;
     row.nim = year > 0 && avgEarning > 0 ? row.nii / avgEarning : null;
     row.costToIncome = row.operatingIncome > 0 ? costs / row.operatingIncome : null;
     row.loanToDeposit = end.deposits > 0 ? end.grossLoans / end.deposits : null;
