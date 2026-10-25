@@ -55,4 +55,8 @@ python build_coverage.py --research ../research
 | Model assumptions | yields, NPLs, tenors, salaries, premises, professional fees and others, all editable |
 | Unresolved interpretations and missing information | see `research/unresolved_issues_register.md` |
 
+## Languages
+
+The whole platform is available in **English and Albanian (Shqip)**. Use the language selector in the top bar, or open the app with `?lang=sq`. This covers the UI, engine status messages, number formats (`1 234,5 mln €`), exports and the key research tables. The CBK pre-application questions, readiness report and org chart also have Albanian versions. Details and the terminology glossary are in `docs/i18n.md`.
+
 Start with `docs/FINDINGS.md` for the conclusions to date and `docs/IMPLEMENTATION.md` for architecture and deployment.

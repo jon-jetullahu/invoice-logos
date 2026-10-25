@@ -286,12 +286,15 @@ export interface RegulatoryTest {
   threshold: number | null;
   ruleStatus: RuleStatus;
   reason: string;
+  /** language-neutral code for UI translation */
+  reasonCode: 'NO_THRESHOLD' | 'NOT_COMPUTABLE' | 'RULE_UNVERIFIED' | 'CAPITAL_UNVERIFIED' | 'MEETS' | 'BREACHES';
 }
 
 export interface Blocker {
   code: string;
   severity: 'BLOCKING' | 'WARNING' | 'INFO';
   message: string;
+  params?: MessageParams;
 }
 
 export interface ModelResult {
@@ -300,10 +303,10 @@ export interface ModelResult {
   years: YearRow[];
   regulatory: RegulatoryTest[];
   statuses: {
-    profitability: { status: 'PROFITABLE' | 'LOSS_MAKING' | 'MIXED'; detail: string };
-    funding: { status: 'FUNDED' | 'UNFUNDED' | 'FUNDED_WITH_WHOLESALE'; detail: string };
-    liquidity: { status: Verdict; detail: string };
-    regulatory: { status: Verdict; detail: string };
+    profitability: { status: 'PROFITABLE' | 'LOSS_MAKING' | 'MIXED'; detail: string; code: string; params: MessageParams };
+    funding: { status: 'FUNDED' | 'UNFUNDED' | 'FUNDED_WITH_WHOLESALE'; detail: string; code: string; params: MessageParams };
+    liquidity: { status: Verdict; detail: string; code: string; params: MessageParams };
+    regulatory: { status: Verdict; detail: string; code: string; params: MessageParams };
   };
   capitalAnalysis: {
     minCashRelMonth: number;
@@ -317,7 +320,7 @@ export interface ModelResult {
     firstProfitableYear: number | null;
   };
   investor: { irr: number | null; npv: number | null; exitEquityValue: number; capTable: CapTableRow[] };
-  checks: { id: string; passed: boolean; detail: string }[];
+  checks: { id: string; passed: boolean; detail: string; params: MessageParams }[];
   blockers: Blocker[];
 }
 
@@ -326,3 +329,6 @@ export interface CapTableRow {
   relMonth: number;
   holders: { holder: string; ownership: number }[];
 }
+
+/** Numeric/string parameters of an engine message, so the UI can render it in any language. */
+export type MessageParams = Record<string, number | string | null>;

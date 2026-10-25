@@ -1,8 +1,8 @@
 # Test results
 
-Run on 2026-10-25T16:47Z in the build container (Node v22.22.0, Python 3.13.17).
+Run on 2026-10-25T17:09Z (Node v22.22.0, Python 3.13.17).
 
-## Engine acceptance tests (`npm test`)
+## Engine and i18n tests (`npm test`)
 
 ```
  ✓ tests/engine.test.ts > Seed data (acceptance 1–5) > 1. portfolio, deposits and accounts are the management figures
@@ -36,22 +36,31 @@ Run on 2026-10-25T16:47Z in the build container (Node v22.22.0, Python 3.13.17).
  ✓ tests/engine.test.ts > Engine behaviour > tax is only charged after carried-forward losses are used
  ✓ tests/engine.test.ts > Engine behaviour > IRR helper
  ✓ tests/engine.test.ts > Engine behaviour > Kosovo payroll: net pay from gross using 0/8/10% brackets and 5% pension
- Test Files  1 passed (1)
-      Tests  31 passed (31)
+ ✓ tests/i18n.test.ts > Albanian translation coverage > every UI string, engine label and status code has an Albanian translation
+ ✓ tests/i18n.test.ts > Albanian translation coverage > translations keep the same {placeholders} and **bold** / `code` markup
+ ✓ tests/i18n.test.ts > Albanian translation coverage > covers a substantial vocabulary
+ ✓ tests/i18n.test.ts > i18n behaviour > interpolates parameters and falls back to English
+ ✓ tests/i18n.test.ts > i18n behaviour > translates codes and year labels
+ ✓ tests/i18n.test.ts > i18n behaviour > uses Albanian research columns when available
+ ✓ tests/i18n.test.ts > i18n behaviour > formats numbers per locale
+ Test Files  2 passed (2)
+      Tests  38 passed (38)
 ```
 
-## Collection pipeline (`npm run test:py`)
+## Collection pipeline and research data (`npm run test:py`)
 
 ```
-tests/test_collection.py::test_year_guess_is_last_year_and_flags_unknown PASSED [ 12%]
-tests/test_collection.py::test_proxy_refusal_classified_as_environment_block PASSED [ 25%]
-tests/test_collection.py::test_number_parsing_handles_thousands_and_negatives PASSED [ 37%]
-tests/test_collection.py::test_candidate_facts_carry_page_and_unit_and_need_review PASSED [ 50%]
-tests/test_collection.py::test_pribank_reports_not_marked_downloaded PASSED [ 62%]
-tests/test_collection.py::test_coverage_matrix_keeps_missing_years PASSED [ 75%]
-tests/test_collection.py::test_validation_never_fills_and_checks_identity_and_restatements PASSED [ 87%]
-tests/test_collection.py::test_research_observations_have_provenance PASSED [100%]
-============================== 8 passed in 0.04s ===============================
+tests/test_collection.py::test_year_guess_is_last_year_and_flags_unknown PASSED [ 10%]
+tests/test_collection.py::test_proxy_refusal_classified_as_environment_block PASSED [ 20%]
+tests/test_collection.py::test_number_parsing_handles_thousands_and_negatives PASSED [ 30%]
+tests/test_collection.py::test_candidate_facts_carry_page_and_unit_and_need_review PASSED [ 40%]
+tests/test_collection.py::test_pribank_reports_not_marked_downloaded PASSED [ 50%]
+tests/test_collection.py::test_coverage_matrix_keeps_missing_years PASSED [ 60%]
+tests/test_collection.py::test_validation_never_fills_and_checks_identity_and_restatements PASSED [ 70%]
+tests/test_collection.py::test_research_observations_have_provenance PASSED [ 80%]
+tests/test_collection.py::test_every_research_csv_is_well_formed PASSED  [ 90%]
+tests/test_collection.py::test_albanian_columns_complete PASSED          [100%]
+============================== 10 passed in 0.04s ==============================
 ```
 
 ## Model integrity (`npm run report`)
@@ -71,12 +80,22 @@ Checks: balance_sheet_identity:ok all_values_finite:ok cash_flow_reconciles:ok y
 
 ## UI end-to-end (Playwright, Chromium)
 
+### English
+
 * All 17 views rendered with no page or console errors.
-* Enabling wholesale funding changes funding status from UNFUNDED to FUNDED_WITH_WHOLESALE.
-* Saving a scenario creates server version v1 and an audit row.
-* The Excel export downloads (about 100 KB).
+* Wholesale toggle changes the funding status.
+* Saving creates a server version and an audit row.
+* The Excel export works.
 * Dark mode renders correctly.
 * At 390 px width there is no horizontal scroll.
+
+### Albanian (`?lang=sq`)
+
+* All 17 views rendered with no errors, and `<html lang="sq">` is set.
+* The automated scan for leftover English UI strings found only source-language content: legal document titles and research notes in columns labelled as such.
+* Albanian number format is verified.
+* The Excel export is in Albanian (sheets LEXOMË, Supozimet, Vjetore, Mujore, Rregullative, Burimet).
+* Switching the language back and forth works.
 
 ## API
 

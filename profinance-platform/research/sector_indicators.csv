@@ -1,23 +1,23 @@
-indicator_id,label,period_end,value,unit,source_document_id,source_type,confidence,notes
-SEC-001,Banking sector total assets,2025-12-31,9.71,EUR_billion,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,+13.5% y/y per CBK AR 2025 snippet (Dec 2025 monthly release snippet also states 9.71bn).
-SEC-002,Banking sector loans,2025-12-31,6.7,EUR_billion,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,+14.7% y/y.
-SEC-003,Banking sector NPL ratio,2025-12-31,0.02,fraction,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,"~2%."
-SEC-004,Banking sector net profit,2025-12-31,184.6,EUR_million,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,+3.0% y/y (2024: +15.4%).
-SEC-005,Banking sector capital,2025-12-31,1.14,EUR_billion,DOC-CBK-MFS-2025-12,REGULATOR_SEARCH_SNIPPET,MEDIUM,
-SEC-006,Top-5 banks share of assets,2025-12-31,0.799,fraction,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,Top-3: 53.7%.
-SEC-007,Number of commercial banks,2025-12-31,11,count,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,8 foreign-owned; foreign share of assets ~84%.
-SEC-008,Number of banks,2022-10-31,12,count,,REGULATOR_SPEECH_SEARCH_SNIPPET,MEDIUM,CBK governor speech (BIS) – number increased to twelve by Oct 2022.
-SEC-009,Sector ROA,2025-07-31,0.023,fraction,,IMF_SEARCH_SNIPPET,MEDIUM,IMF Article IV/FSSR 2026 publication.
-SEC-010,Sector ROE,2025-07-31,0.176,fraction,,IMF_SEARCH_SNIPPET,MEDIUM,
-SEC-011,Sector capital adequacy ratio,2025-07-31,0.155,fraction,,IMF_SEARCH_SNIPPET,LOW,Stated as 15–16%; midpoint shown.
-SEC-012,Sector CAR,2022-09-30,0.161,fraction,,REGULATOR_SPEECH_SEARCH_SNIPPET,MEDIUM,BIS-published CBK speech 15-Nov-2022; requirement 12%.
-SEC-013,Sector liquidity indicator,2022-09-30,0.357,fraction,,REGULATOR_SPEECH_SEARCH_SNIPPET,MEDIUM,Requirement 25%.
-SEC-014,Effective interest rate on loans,2025-09-30,0.069,annual_rate,DOC-CBK-MFS-2025-09,REGULATOR_SEARCH_SNIPPET,MEDIUM,Range Feb–Sep 2025: 5.7%–6.9%.
-SEC-015,Effective interest rate on deposits,2025-09-30,0.031,annual_rate,DOC-CBK-MFS-2025-09,REGULATOR_SEARCH_SNIPPET,MEDIUM,Time deposits households 3.1%; NFC 3.3%.
-SEC-016,POS terminals,2024-12-31,20913,count,DOC-CBK-CARDS-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,
-SEC-017,ATM terminals,2024-12-31,635,count,DOC-CBK-CARDS-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,
-SEC-018,Bank accounts,2024-12-31,2620000,count,,REGULATOR_MINUTES_SEARCH_SNIPPET,MEDIUM,~390k basic-service accounts.
-SEC-019,Average gross monthly wage (economy),2025-12-31,713,EUR,,STATISTICS_AGENCY_VIA_PRESS,MEDIUM,KAS wage report 2025 (via Gazeta Express/SeeNews); 2024: 639.
-SEC-020,Highest-paid activity avg gross wage (ICT),2025-12-31,1216,EUR,,STATISTICS_AGENCY_VIA_PRESS,MEDIUM,Financial & insurance activities (NACE K) figure not obtained.
-SEC-021,Minimum wage,2026-01-01,425,EUR_per_month,,SECONDARY_WEB,LOW,Reported €500 from 1-Jul-2026 (verify).
-SEC-022,Deposit insurance coverage per depositor per bank,2026-01-01,5000,EUR,,IMF_SEARCH_SNIPPET,MEDIUM,Planned increase to €10,000 (World Bank project) not yet fully funded.
+indicator_id,label,label_sq,period_end,value,unit,source_document_id,source_type,confidence,notes
+SEC-001,Banking sector total assets,Totali i aseteve të sektorit bankar,2025-12-31,9.71,EUR_billion,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,+13.5% y/y per CBK AR 2025 snippet (Dec 2025 monthly release snippet also states 9.71bn).
+SEC-002,Banking sector loans,Kreditë e sektorit bankar,2025-12-31,6.7,EUR_billion,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,+14.7% y/y.
+SEC-003,Banking sector NPL ratio,Raporti i KJP-ve në sektorin bankar,2025-12-31,0.02,fraction,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,~2%.
+SEC-004,Banking sector net profit,Fitimi neto i sektorit bankar,2025-12-31,184.6,EUR_million,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,+3.0% y/y (2024: +15.4%).
+SEC-005,Banking sector capital,Kapitali i sektorit bankar,2025-12-31,1.14,EUR_billion,DOC-CBK-MFS-2025-12,REGULATOR_SEARCH_SNIPPET,MEDIUM,
+SEC-006,Top-5 banks share of assets,Pjesa e 5 bankave më të mëdha në asete,2025-12-31,0.799,fraction,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,Top-3: 53.7%.
+SEC-007,Number of commercial banks,Numri i bankave komerciale,2025-12-31,11,count,DOC-CBK-AR-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,8 foreign-owned; foreign share of assets ~84%.
+SEC-008,Number of banks,Numri i bankave,2022-10-31,12,count,,REGULATOR_SPEECH_SEARCH_SNIPPET,MEDIUM,CBK governor speech (BIS) – number increased to twelve by Oct 2022.
+SEC-009,Sector ROA,KNA e sektorit,2025-07-31,0.023,fraction,,IMF_SEARCH_SNIPPET,MEDIUM,IMF Article IV/FSSR 2026 publication.
+SEC-010,Sector ROE,KNE e sektorit,2025-07-31,0.176,fraction,,IMF_SEARCH_SNIPPET,MEDIUM,
+SEC-011,Sector capital adequacy ratio,Raporti i mjaftueshmërisë së kapitalit të sektorit,2025-07-31,0.155,fraction,,IMF_SEARCH_SNIPPET,LOW,Stated as 15–16%; midpoint shown.
+SEC-012,Sector CAR,RMK e sektorit,2022-09-30,0.161,fraction,,REGULATOR_SPEECH_SEARCH_SNIPPET,MEDIUM,BIS-published CBK speech 15-Nov-2022; requirement 12%.
+SEC-013,Sector liquidity indicator,Treguesi i likuiditetit të sektorit,2022-09-30,0.357,fraction,,REGULATOR_SPEECH_SEARCH_SNIPPET,MEDIUM,Requirement 25%.
+SEC-014,Effective interest rate on loans,Norma efektive e interesit për kreditë,2025-09-30,0.069,annual_rate,DOC-CBK-MFS-2025-09,REGULATOR_SEARCH_SNIPPET,MEDIUM,Range Feb–Sep 2025: 5.7%–6.9%.
+SEC-015,Effective interest rate on deposits,Norma efektive e interesit për depozitat,2025-09-30,0.031,annual_rate,DOC-CBK-MFS-2025-09,REGULATOR_SEARCH_SNIPPET,MEDIUM,Time deposits households 3.1%; NFC 3.3%.
+SEC-016,POS terminals,Terminalet POS,2024-12-31,20913,count,DOC-CBK-CARDS-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,
+SEC-017,ATM terminals,Bankomatët,2024-12-31,635,count,DOC-CBK-CARDS-2025,REGULATOR_SEARCH_SNIPPET,MEDIUM,
+SEC-018,Bank accounts,Llogaritë bankare,2024-12-31,2620000,count,,REGULATOR_MINUTES_SEARCH_SNIPPET,MEDIUM,~390k basic-service accounts.
+SEC-019,Average gross monthly wage (economy),Paga mesatare bruto mujore (ekonomia),2025-12-31,713,EUR,,STATISTICS_AGENCY_VIA_PRESS,MEDIUM,KAS wage report 2025 (via Gazeta Express/SeeNews); 2024: 639.
+SEC-020,Highest-paid activity avg gross wage (ICT),Paga mesatare bruto e veprimtarisë më të paguar (TIK),2025-12-31,1216,EUR,,STATISTICS_AGENCY_VIA_PRESS,MEDIUM,Financial & insurance activities (NACE K) figure not obtained.
+SEC-021,Minimum wage,Paga minimale,2026-01-01,425,EUR_per_month,,SECONDARY_WEB,LOW,Reported €500 from 1-Jul-2026 (verify).
+SEC-022,Deposit insurance coverage per depositor per bank,Mbulimi i sigurimit të depozitave për depozitues për bankë,2026-01-01,5000,EUR,,IMF_SEARCH_SNIPPET,MEDIUM,"Planned increase to €10,000 (World Bank project) not yet fully funded."

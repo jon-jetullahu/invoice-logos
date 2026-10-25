@@ -4,6 +4,7 @@ import {
 } from 'recharts';
 import { getPath, TRACE, type SourceType, type Verdict } from '../engine';
 import { eurM, pct } from './format';
+import { useI18n } from './i18n';
 
 export const SERIES = ['var(--series-1)', 'var(--series-2)', 'var(--series-3)', 'var(--series-4)'];
 
@@ -40,7 +41,8 @@ export function VerdictChip({ v, label }: { v: Verdict | string; label?: string 
     : v === 'FAIL' || v === 'UNFUNDED' || v === 'LOSS_MAKING' ? 'bad'
       : v === 'FUNDED_WITH_WHOLESALE' || v === 'MIXED' || v === 'UNDETERMINED' ? 'warn' : 'neutral';
   const icon = VERDICT_ICON[v] ?? (tone === 'good' ? '✔' : tone === 'bad' ? '✖' : '•');
-  return <span className={`chip ${tone}`}><span aria-hidden>{icon}</span>{label ?? v.replace(/_/g, ' ')}</span>;
+  const { tc } = useI18n();
+  return <span className={`chip ${tone}`}><span aria-hidden>{icon}</span>{label ?? tc(v)}</span>;
 }
 
 const SOURCE_TONE: Record<string, string> = {
@@ -49,21 +51,23 @@ const SOURCE_TONE: Record<string, string> = {
   DEMO_PRESET: 'bad', DERIVED: 'good', VERIFIED: 'good', REPORTED_UNVERIFIED: 'warn', HISTORICAL_UNVERIFIED: 'warn', NOT_OBTAINED: 'bad',
 };
 export function SourceBadge({ s }: { s: SourceType | string }) {
-  return <span className={`chip ${SOURCE_TONE[s] ?? 'neutral'}`} title={s}>{s.replace(/_/g, ' ').toLowerCase()}</span>;
+  const { tc } = useI18n();
+  return <span className={`chip ${SOURCE_TONE[s] ?? 'neutral'}`} title={s}>{tc(s).toLowerCase()}</span>;
 }
 
 export function Explain({ id }: { id: string }) {
   const [open, setOpen] = useState(false);
-  const t = TRACE[id];
-  if (!t) return null;
+  const tr = TRACE[id];
+  const { t, tc } = useI18n();
+  if (!tr) return null;
   return (
     <span className="no-print">
-      <button className="btn small" onClick={() => setOpen(!open)} title="Show formula and source" aria-expanded={open}>ƒ</button>
+      <button className="btn small" onClick={() => setOpen(!open)} title={t('Show formula and source')} aria-expanded={open}>ƒ</button>
       {open && (
         <div className="tooltip-box" style={{ marginTop: 6, maxWidth: 520 }}>
-          <div><b>Formula:</b> {t.formula}</div>
-          <div><b>Inputs:</b> {t.inputs.join(', ')}</div>
-          <div><b>Source types:</b> {t.sources.join(', ')}</div>
+          <div><b>{t('Formula:')}</b> {t(tr.formula)}</div>
+          <div><b>{t('Inputs:')}</b> {tr.inputs.join(', ')}</div>
+          <div><b>{t('Source types:')}</b> {tr.sources.map(tc).join(', ')}</div>
         </div>
       )}
     </span>
@@ -122,12 +126,13 @@ export function ChartCard({ title, sub, data, xKey, series, format = eurM, heigh
   format?: (v: number) => string; height?: number; refLines?: { y: number; label: string }[];
 }) {
   const [table, setTable] = useState(false);
+  const { t } = useI18n();
   return (
-    <Card title={title} sub={sub} right={<button className="btn small no-print" onClick={() => setTable(!table)}>{table ? 'Chart' : 'Table'}</button>}>
+    <Card title={title} sub={sub} right={<button className="btn small no-print" onClick={() => setTable(!table)}>{table ? t('Chart') : t('Table')}</button>}>
       {table ? (
         <div className="table-wrap">
           <table>
-            <thead><tr><th>{xKey}</th>{series.map((s) => <th key={s.key} className="num">{s.label}</th>)}</tr></thead>
+            <thead><tr><th>{t('Period')}</th>{series.map((s) => <th key={s.key} className="num">{s.label}</th>)}</tr></thead>
             <tbody>{data.map((d, i) => (
               <tr key={i}><td>{String(d[xKey])}</td>{series.map((s) => <td key={s.key} className="num">{format(d[s.key] as number)}</td>)}</tr>
             ))}</tbody>

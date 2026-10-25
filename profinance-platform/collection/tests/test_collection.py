@@ -72,3 +72,18 @@ def test_validation_never_fills_and_checks_identity_and_restatements():  # accep
 def test_research_observations_have_provenance():
     checks = bc.validate_financials(read("historical_financials.csv"))
     assert not [c for c in checks if c["result"] == "FAIL"]
+
+
+def test_every_research_csv_is_well_formed():
+    # an unquoted comma in a free-text field silently shifts columns; fail loudly instead
+    for path in sorted(RESEARCH.glob("*.csv")):
+        with path.open(encoding="utf-8-sig", newline="") as f:
+            rows = list(csv.DictReader(f))
+        bad = [i for i, r in enumerate(rows) if None in r or any(v is None for v in r.values())]
+        assert not bad, f"{path.name}: malformed rows {bad}"
+
+
+def test_albanian_columns_complete():
+    for name, col in [("hr_roles.csv", "role_sq"), ("cost_database.csv", "item_sq"), ("cbk_requirements.csv", "requirement_sq"),
+                      ("sector_indicators.csv", "label_sq"), ("kosovo_bank_salary_evidence.csv", "role_or_scope_sq")]:
+        assert all(r[col].strip() for r in read(name)), f"{name}: empty {col}"

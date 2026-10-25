@@ -22,7 +22,7 @@ export const DATA = {
   sector: sector as Rows, legal: legal as Rows, requirements: requirements as Rows, roles: roles as Rows,
   salaryEvidence: salaryEvidence as Rows, costs: costs as Rows, retrieval: retrieval as Rows, quality: quality as Rows,
   assumptionRegister: assumptionRegister as Rows,
-  memos: memos as { file: string; title: string; markdown: string }[],
+  memos: memos as { file: string; title: string; markdown: string; lang: 'en' | 'sq' }[],
   datasetIndex: datasetIndex as { dataset: string; path: string; rows: number; bytes: number; sha256: string }[],
 };
 

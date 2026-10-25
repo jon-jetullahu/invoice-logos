@@ -6,7 +6,7 @@ import { cbsSchedule } from './cbs';
 import { costEvents, type CostRow, type Drivers } from './costs';
 import { monthlyTargets, yearEndPath } from './management';
 import { branchesForYear, staffMonth, type RoleDef } from './staffing';
-import type { Blocker, CapTableRow, ModelInputs, ModelResult, MonthRow, ProductInputs, RegulatoryRule, RegulatoryTest, Verdict, YearRow } from './types';
+import type { Blocker, CapTableRow, ModelInputs, ModelResult, MonthRow, ProductInputs, RegulatoryRule, RegulatoryTest, YearRow } from './types';
 import { visaScheduleUsd } from './visa';
 
 export interface ModelData { roles: RoleDef[]; costs: CostRow[] }
@@ -355,7 +355,7 @@ export function runModel(inputs: ModelInputs, data: ModelData = DEFAULT_DATA): M
     months,
     years,
     regulatory,
-    statuses: statuses(inputs, months, years, regulatory),
+    statuses: statuses(months, years, regulatory),
     capitalAnalysis: capitalAnalysis(inputs, months, years),
     investor: investorView(inputs, months),
     checks: integrityChecks(months, goodsT, leaseT),
@@ -404,15 +404,17 @@ export function aggregateYears(months: MonthRow[]): YearRow[] {
   return out;
 }
 
-function verdictFor(inputs: ModelInputs, r: RegulatoryRule | undefined, worst: number | null, higherIsBetter: boolean, capitalSensitive: boolean): Pick<RegulatoryTest, 'verdict' | 'indicative' | 'reason'> {
-  if (!r || r.value === null) return { verdict: 'UNDETERMINED', indicative: 'N/A', reason: 'Threshold not obtained from a verified official source.' };
-  if (worst === null) return { verdict: 'UNDETERMINED', indicative: 'N/A', reason: 'Ratio not computable (denominator zero or missing inputs).' };
+function verdictFor(inputs: ModelInputs, r: RegulatoryRule | undefined, worst: number | null, higherIsBetter: boolean, capitalSensitive: boolean): Pick<RegulatoryTest, 'verdict' | 'indicative' | 'reason' | 'reasonCode'> {
+  if (!r || r.value === null) return { verdict: 'UNDETERMINED', indicative: 'N/A', reasonCode: 'NO_THRESHOLD', reason: 'Threshold not obtained from a verified official source.' };
+  if (worst === null) return { verdict: 'UNDETERMINED', indicative: 'N/A', reasonCode: 'NOT_COMPUTABLE', reason: 'Ratio not computable (denominator zero or missing inputs).' };
   const ok = higherIsBetter ? worst >= r.value : worst <= r.value;
   const indicative = ok ? 'ABOVE' : 'BELOW';
-  if (r.status !== 'VERIFIED') return { verdict: 'UNDETERMINED', indicative, reason: `Rule status ${r.status}: verify against the official text before any PASS/FAIL.` };
+  if (r.status !== 'VERIFIED') return { verdict: 'UNDETERMINED', indicative, reasonCode: 'RULE_UNVERIFIED', reason: `Rule status ${r.status}: verify against the official text before any PASS/FAIL.` };
   if (capitalSensitive && !inputs.capital.capitalInputsVerified)
-    return { verdict: 'UNDETERMINED', indicative, reason: 'Capital inputs (cash capital, deductions, eligibility) not verified.' };
-  return { verdict: ok ? 'PASS' : 'FAIL', indicative, reason: ok ? 'Meets verified threshold in every month.' : 'Breaches verified threshold.' };
+    return { verdict: 'UNDETERMINED', indicative, reasonCode: 'CAPITAL_UNVERIFIED', reason: 'Capital inputs (cash capital, deductions, eligibility) not verified.' };
+  return ok
+    ? { verdict: 'PASS', indicative, reasonCode: 'MEETS', reason: 'Meets verified threshold in every month.' }
+    : { verdict: 'FAIL', indicative, reasonCode: 'BREACHES', reason: 'Breaches verified threshold.' };
 }
 
 export function regulatoryTests(inputs: ModelInputs, months: MonthRow[]): RegulatoryTest[] {
@@ -443,37 +445,40 @@ export function regulatoryTests(inputs: ModelInputs, months: MonthRow[]): Regula
   return tests;
 }
 
-function statuses(inputs: ModelInputs, months: MonthRow[], years: YearRow[], reg: RegulatoryTest[]): ModelResult['statuses'] {
+function statuses(months: MonthRow[], years: YearRow[], reg: RegulatoryTest[]): ModelResult['statuses'] {
   const op = years.filter((y) => y.year > 0);
   const last = op[op.length - 1];
   const cum = op.reduce((a, y) => a + y.netIncome, 0) + (years.find((y) => y.year === 0)?.netIncome ?? 0);
-  const profitability = last.netIncome > 0 && cum > 0
-    ? { status: 'PROFITABLE' as const, detail: `Final-year net income €${fmt(last.netIncome)}; cumulative incl. pre-op €${fmt(cum)}.` }
+  const profitability: ModelResult['statuses']['profitability'] = last.netIncome > 0 && cum > 0
+    ? { status: 'PROFITABLE', code: 'PROFITABLE', params: { finalNi: last.netIncome, cum }, detail: `Final-year net income €${fmt(last.netIncome)}; cumulative incl. pre-op €${fmt(cum)}.` }
     : last.netIncome <= 0
-      ? { status: 'LOSS_MAKING' as const, detail: `Final-year net income €${fmt(last.netIncome)}.` }
-      : { status: 'MIXED' as const, detail: `Final year profitable but cumulative result €${fmt(cum)}.` };
+      ? { status: 'LOSS_MAKING', code: 'LOSS_MAKING', params: { finalNi: last.netIncome }, detail: `Final-year net income €${fmt(last.netIncome)}.` }
+      : { status: 'MIXED', code: 'MIXED', params: { cum }, detail: `Final year profitable but cumulative result €${fmt(cum)}.` };
   const minCash = months.reduce((a, x) => (x.cashTotal < a.cashTotal ? x : a), months[0]);
   const maxBorrow = Math.max(...months.map((x) => x.borrowings));
-  const funding = minCash.cashTotal < -0.5
-    ? { status: 'UNFUNDED' as const, detail: `Cash falls to €${fmt(minCash.cashTotal)} in month ${minCash.rel} (relative to go-live). Additional funding required.` }
+  const funding: ModelResult['statuses']['funding'] = minCash.cashTotal < -0.5
+    ? { status: 'UNFUNDED', code: 'UNFUNDED', params: { minCash: minCash.cashTotal, month: minCash.rel }, detail: `Cash falls to €${fmt(minCash.cashTotal)} in month ${minCash.rel} (relative to go-live). Additional funding required.` }
     : maxBorrow > 0
-      ? { status: 'FUNDED_WITH_WHOLESALE' as const, detail: `Requires up to €${fmt(maxBorrow)} of assumed wholesale funding.` }
-      : { status: 'FUNDED' as const, detail: 'Cash never negative under these assumptions.' };
+      ? { status: 'FUNDED_WITH_WHOLESALE', code: 'FUNDED_WITH_WHOLESALE', params: { maxBorrow }, detail: `Requires up to €${fmt(maxBorrow)} of assumed wholesale funding.` }
+      : { status: 'FUNDED', code: 'FUNDED', params: {}, detail: 'Cash never negative under these assumptions.' };
   const liqTest = reg.find((t) => t.ruleId === 'R-LIQ')!;
   const resTest = reg.find((t) => t.ruleId === 'R-RES')!;
-  const liquidity: { status: Verdict; detail: string } = minCash.cashTotal < 0
-    ? { status: 'FAIL', detail: 'Negative cash balance – liquidity impossible regardless of rule thresholds.' }
+  const liquidity: ModelResult['statuses']['liquidity'] = minCash.cashTotal < 0
+    ? { status: 'FAIL', code: 'NEGATIVE_CASH', params: {}, detail: 'Negative cash balance – liquidity impossible regardless of rule thresholds.' }
     : { status: liqTest.verdict === 'PASS' && resTest.verdict === 'PASS' ? 'PASS' : liqTest.verdict === 'FAIL' || resTest.verdict === 'FAIL' ? 'FAIL' : 'UNDETERMINED',
+        code: 'RATIO', params: { minRatio: liqTest.worstValue, indicative: liqTest.indicative, reasonCode: liqTest.reasonCode },
         detail: `Min liquidity ratio ${pct(liqTest.worstValue)} (indicative ${liqTest.indicative}); ${liqTest.reason}` };
   const anyFail = reg.some((t) => t.verdict === 'FAIL');
   const allPass = reg.every((t) => t.verdict === 'PASS');
   const negEquity = months.some((x) => x.rel >= 0 && x.equity < 0);
-  const regulatory: { status: Verdict; detail: string } = negEquity
-    ? { status: 'FAIL', detail: 'Equity becomes negative.' }
-    : anyFail ? { status: 'FAIL', detail: 'At least one verified rule is breached.' }
-      : allPass ? { status: 'PASS', detail: 'All rules verified and met.' }
-        : { status: 'UNDETERMINED', detail: `${reg.filter((t) => t.verdict === 'UNDETERMINED').length} of ${reg.length} tests undetermined (unverified rules or inputs). Indicative shortfalls: ${reg.filter((t) => t.indicative === 'BELOW').map((t) => t.ruleId).join(', ') || 'none'}.` };
-  void inputs;
+  const undetermined = reg.filter((t) => t.verdict === 'UNDETERMINED').length;
+  const shortfalls = reg.filter((t) => t.indicative === 'BELOW').map((t) => t.ruleId).join(', ');
+  const regulatory: ModelResult['statuses']['regulatory'] = negEquity
+    ? { status: 'FAIL', code: 'NEGATIVE_EQUITY', params: {}, detail: 'Equity becomes negative.' }
+    : anyFail ? { status: 'FAIL', code: 'VERIFIED_BREACH', params: {}, detail: 'At least one verified rule is breached.' }
+      : allPass ? { status: 'PASS', code: 'ALL_PASS', params: {}, detail: 'All rules verified and met.' }
+        : { status: 'UNDETERMINED', code: 'UNDETERMINED', params: { undetermined, total: reg.length, shortfalls },
+            detail: `${undetermined} of ${reg.length} tests undetermined (unverified rules or inputs). Indicative shortfalls: ${shortfalls || 'none'}.` };
   return { profitability, funding, liquidity, regulatory };
 }
 
@@ -544,6 +549,7 @@ function integrityChecks(months: MonthRow[], goodsT: number[], leaseT: number[])
   const maxDiff = Math.max(...months.map((x) => Math.abs(x.balanceDifference)));
   const finite = months.every((x) => Object.values(x).every((v) => typeof v !== 'number' || Number.isFinite(v)));
   const cfSum = months.reduce((a, x) => a + x.cfOperating + x.cfInvesting + x.cfFinancing, 0);
+  const closing = months[months.length - 1].cashTotal;
   const op = months.filter((x) => x.rel >= 0);
   let targetMiss = 0;
   for (const x of op) {
@@ -551,13 +557,13 @@ function integrityChecks(months: MonthRow[], goodsT: number[], leaseT: number[])
     targetMiss = Math.max(targetMiss, Math.max(0, goodsT[x.rel] - x.goodsGross), Math.max(0, leaseT[x.rel] - x.leasingGross));
   }
   const totOrig = op.reduce((a, x) => a + x.originationsGoods + x.originationsLeasing, 0);
-  const stockChange = (op[op.length - 1]?.grossLoans ?? 0) - 0;
+  const stockChange = op[op.length - 1]?.grossLoans ?? 0;
   return [
-    { id: 'balance_sheet_identity', passed: maxDiff < 0.01, detail: `max |assets − liabilities − equity| = ${maxDiff.toExponential(2)} EUR` },
-    { id: 'all_values_finite', passed: finite, detail: finite ? 'no NaN/∞' : 'non-finite value detected' },
-    { id: 'cash_flow_reconciles', passed: Math.abs(cfSum - months[months.length - 1].cashTotal) < 0.01, detail: `Σ cash flows = ${fmt(cfSum)}; closing cash = ${fmt(months[months.length - 1].cashTotal)}` },
-    { id: 'year_end_targets_met', passed: targetMiss < 1, detail: `max year-end shortfall vs management stock targets: €${fmt(targetMiss)}` },
-    { id: 'originations_exceed_stock_change', passed: totOrig >= stockChange - 0.01, detail: `Σ originations €${fmt(totOrig)} vs stock change €${fmt(stockChange)} (repayments make them differ)` },
+    { id: 'balance_sheet_identity', passed: maxDiff < 0.01, params: { maxDiff }, detail: `max |assets − liabilities − equity| = ${maxDiff.toExponential(2)} EUR` },
+    { id: 'all_values_finite', passed: finite, params: {}, detail: finite ? 'no NaN/∞' : 'non-finite value detected' },
+    { id: 'cash_flow_reconciles', passed: Math.abs(cfSum - closing) < 0.01, params: { cfSum, closing }, detail: `Σ cash flows = ${fmt(cfSum)}; closing cash = ${fmt(closing)}` },
+    { id: 'year_end_targets_met', passed: targetMiss < 1, params: { targetMiss }, detail: `max year-end shortfall vs management stock targets: €${fmt(targetMiss)}` },
+    { id: 'originations_exceed_stock_change', passed: totOrig >= stockChange - 0.01, params: { totOrig, stockChange }, detail: `Σ originations €${fmt(totOrig)} vs stock change €${fmt(stockChange)} (repayments make them differ)` },
   ];
 }
 
@@ -569,7 +575,8 @@ function blockers(inputs: ModelInputs, months: MonthRow[]): Blocker[] {
   if (!inputs.capital.injections.some((x) => x.enabled)) b.push({ code: 'NO_CAPITAL_INJECTION', severity: 'BLOCKING', message: 'No capital injection enabled. Nominal share capital (€11.4m) is NOT treated as cash.' });
   if (!inputs.capital.capitalInputsVerified) b.push({ code: 'CAPITAL_INPUTS_UNVERIFIED', severity: 'BLOCKING', message: 'Cash capital, eligibility and deductions are assumptions, not verified figures.' });
   const unverified = inputs.regulatory.rules.filter((r) => r.status !== 'VERIFIED');
-  if (unverified.length) b.push({ code: 'RULES_UNVERIFIED', severity: 'BLOCKING', message: `${unverified.length} regulatory thresholds not verified against current official texts: ${unverified.map((r) => r.id).join(', ')}.` });
+  if (unverified.length) b.push({ code: 'RULES_UNVERIFIED', severity: 'BLOCKING', params: { count: unverified.length, rules: unverified.map((r) => r.id).join(', ') },
+    message: `${unverified.length} regulatory thresholds not verified against current official texts: ${unverified.map((r) => r.id).join(', ')}.` });
   if (inputs.visa.enabled && inputs.fx.eurPerUsd === null) b.push({ code: 'FX_MISSING', severity: 'WARNING', message: 'Visa costs are in USD and no EUR/USD rate was entered: card costs are EXCLUDED from EUR statements.' });
   if (inputs.visa.enabled && inputs.visa.variableFeePerCardMonthlyUsd === null) b.push({ code: 'VISA_VARIABLE_FEES_UNPRICED', severity: 'WARNING', message: 'Scheme/processing variable fees, acquiring platform and fraud tooling are unpriced.' });
   if (inputs.cbs.billingTrigger === 'go_live') b.push({ code: 'CBS_BILLING_START_ASSUMED', severity: 'INFO', message: 'Subscription billing assumed to start at go-live; contract terms unknown.' });

@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.0 (2026-10-25)
+
+Bilingual platform (English / Shqip):
+
+* i18n layer with a persisted language switcher and `?lang=` URL parameter.
+* 988-entry Albanian dictionary, plus Albanian number and period formatting.
+* The engine now emits message codes and parameters for statuses, blockers, verdict reasons and integrity checks, so they render in either language.
+* Albanian columns in the role, cost, requirement, sector-indicator and salary-evidence tables.
+* Albanian memos: CBK questions, readiness report, org chart.
+* Excel, CSV and board report exports follow the selected language.
+* Tests now fail on any untranslated string or on broken placeholders or markup. A CSV well-formedness test was also added.
+* Fixed a malformed `sector_indicators.csv` row: an unquoted comma in its notes had dropped part of the row.
+
 ## 0.1.0 (2026-10-25)
 * Preserved the original source package. The Facilization PDF SHA-256 matches the manifest.
 * Research database: 18 institutions, 290 institution-years in the coverage matrix, 29 registered documents, 26 legal sources, 31 CBK requirements, 48 HR roles, 9 salary-evidence rows, 46 cost lines, sector indicators, memos (licensing, Islamic banking, org chart, CBK questions, readiness, unresolved issues, coverage report, data dictionary).

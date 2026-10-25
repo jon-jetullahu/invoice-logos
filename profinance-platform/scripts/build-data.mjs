@@ -54,7 +54,7 @@ for (const [dir, files] of sources) {
 // Research memos for the document library
 const memos = readdirSync(join(root, 'research')).filter((f) => f.endsWith('.md'))
   .map((f) => ({ file: `research/${f}`, title: readFileSync(join(root, 'research', f), 'utf8').split('\n')[0].replace(/^#\s*/, ''),
-    markdown: readFileSync(join(root, 'research', f), 'utf8') }));
+    markdown: readFileSync(join(root, 'research', f), 'utf8'), lang: f.endsWith('.sq.md') ? 'sq' : 'en' }));
 writeFileSync(join(outDir, 'memos.json'), JSON.stringify(memos));
 writeFileSync(join(outDir, 'index.json'), JSON.stringify(index, null, 1));
 console.log(`build-data: ${index.length} datasets, ${memos.length} memos -> src/data/generated`);
