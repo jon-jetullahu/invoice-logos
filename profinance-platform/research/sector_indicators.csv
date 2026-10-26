@@ -21,3 +21,9 @@ SEC-019,Average gross monthly wage (economy),Paga mesatare bruto mujore (ekonomi
 SEC-020,Highest-paid activity avg gross wage (ICT),Paga mesatare bruto e veprimtarisë më të paguar (TIK),2025-12-31,1216,EUR,,STATISTICS_AGENCY_VIA_PRESS,MEDIUM,Financial & insurance activities (NACE K) figure not obtained.
 SEC-021,Minimum wage,Paga minimale,2026-01-01,425,EUR_per_month,,SECONDARY_WEB,LOW,Reported €500 from 1-Jul-2026 (verify).
 SEC-022,Deposit insurance coverage per depositor per bank,Mbulimi i sigurimit të depozitave për depozitues për bankë,2026-01-01,5000,EUR,,IMF_SEARCH_SNIPPET,MEDIUM,"Planned increase to €10,000 (World Bank project) not yet fully funded."
+SEC-023,Banking sector gross loans,Kreditë bruto të sektorit bankar,2023-12-31,4.91,EUR_billion,,PRESS_REPORT_OF_CBK_DATA,MEDIUM,Kallxo.com summary of CBK December-2023 data.
+SEC-024,Banking sector customer deposits,Depozitat e klientëve në sektorin bankar,2023-12-31,6.13,EUR_billion,,PRESS_REPORT_OF_CBK_DATA,MEDIUM,Same source; loan-to-deposit ratio 80.2%.
+SEC-025,Banking sector loan-to-deposit ratio,Raporti kredi/depozita i sektorit bankar,2023-12-31,0.802,fraction,,PRESS_REPORT_OF_CBK_DATA,MEDIUM,
+SEC-026,Sector ROA,KNA e sektorit,2023-12-31,0.025,fraction,DOC-CBK-FSR-20,REGULATOR_SEARCH_SNIPPET,MEDIUM,CBK Financial Stability Report No. 20.
+SEC-027,Sector ROE,KNE e sektorit,2023-12-31,0.22,fraction,DOC-CBK-FSR-20,REGULATOR_SEARCH_SNIPPET,MEDIUM,CBK Financial Stability Report No. 20.
+SEC-028,Banking sector capital,Kapitali i sektorit bankar,2023-12-31,0.863,EUR_billion,,PRESS_REPORT_OF_CBK_DATA,MEDIUM,Buletini Ekonomik summary of CBK data.

@@ -6,7 +6,7 @@ Generated from `coverage_matrix.csv`, `document_registry.csv` and `retrieval_log
 
 * Institutions tracked: **18**. Of these, 11 are active, 7 are historical or exited, and some are still candidates for verification.
 * Institution-years expected, from the first operating year to FY2025: **290**.
-* Documents registered: **29**. Primary PDFs downloaded: **0**. Annual reports extracted and verified: **0**. **Verified coverage: 0%.**
+* Documents registered: **30**. Primary PDFs downloaded: **0**. Annual reports extracted and verified: **0**. **Verified coverage: 0%.**
 * Retrieval attempts logged: **47**. Every attempt failed because the egress policy refused the connection (`BLOCKED_BY_ENVIRONMENT`), including the Internet Archive fallback.
 
 ## Coverage status counts

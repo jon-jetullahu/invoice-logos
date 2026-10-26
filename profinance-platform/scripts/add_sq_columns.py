@@ -72,6 +72,8 @@ REQS = {
  'REQ-ISL-001':'Banka islame / dritarja islame e përkufizuar në ligj; nuk u gjet rregullore specifike e BQK-së për bankingun islam',
  'REQ-PAY-001':'Pjesëmarrja në sistemin ndërbankar të pagesave të BQK-së (KIPS) dhe në regjistrin e kredive',
  'REQ-OPS-001':'Ambiente që plotësojnë standardet e sigurisë; trezori; vazhdimësia e biznesit/rimëkëmbja nga fatkeqësitë',
+ 'REQ-LIC-006':'Përmbushja e të gjitha kushteve të miratimit paraprak brenda 1 viti, përndryshe miratimi paraprak revokohet',
+ 'REQ-ACT-001':'Të ardhurat nga shërbimet jofinanciare kufizohen në 10% të të ardhurave totale neto nga interesi të vitit financiar paraprak',
  'REQ-OUT-001':'Transferimi te palë të treta i funksioneve materiale (përfshirë hostimin/shërbimet e menaxhuara të CBS) i nënshtrohet rregullave/njoftimit të BQK-së',
 }
 SECTOR = {
@@ -81,6 +83,8 @@ SECTOR = {
  'SEC-013':'Treguesi i likuiditetit të sektorit','SEC-014':'Norma efektive e interesit për kreditë','SEC-015':'Norma efektive e interesit për depozitat',
  'SEC-016':'Terminalet POS','SEC-017':'Bankomatët','SEC-018':'Llogaritë bankare','SEC-019':'Paga mesatare bruto mujore (ekonomia)',
  'SEC-020':'Paga mesatare bruto e veprimtarisë më të paguar (TIK)','SEC-021':'Paga minimale','SEC-022':'Mbulimi i sigurimit të depozitave për depozitues për bankë',
+ 'SEC-023':'Kreditë bruto të sektorit bankar','SEC-024':'Depozitat e klientëve në sektorin bankar','SEC-025':'Raporti kredi/depozita i sektorit bankar',
+ 'SEC-026':'KNA e sektorit','SEC-027':'KNE e sektorit','SEC-028':'Kapitali i sektorit bankar',
 }
 SALARY = {
  'SAL-001':'Të gjithë punonjësit (mesatarja e ekonomisë)','SAL-002':'Të gjithë punonjësit (mesatarja e ekonomisë)','SAL-003':'Të gjithë punonjësit (mesatarja e ekonomisë)',

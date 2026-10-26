@@ -160,7 +160,7 @@ export function Readiness({ inputs, result }: ModProps) {
             <tr><td>{t('Minimum initial capital')}</td><td><VerdictChip v={reg[0].verdict} /></td><td>{msg.reason(reg[0])}</td></tr>
             <tr><td>{t('Capital adequacy through the plan')}</td><td><VerdictChip v={reg[1].verdict} /></td><td>{t('Indicative {dir}; {reason}', { dir: tc(reg[1].indicative), reason: msg.reason(reg[1]) })}</td></tr>
             <tr><td>{t('Liquidity & funding')}</td><td><VerdictChip v={result.statuses.liquidity.status} /></td><td>{msg.status(result.statuses.funding)}</td></tr>
-            <tr><td>{t('Governance & key function holders')}</td><td><VerdictChip v="UNDETERMINED" /></td><td>{t('Board size and independence rules were not obtained. Roles are proposed in the Staffing module.')}</td></tr>
+            <tr><td>{t('Governance & key function holders')}</td><td><VerdictChip v="UNDETERMINED" /></td><td>{t('Board rule reported: odd number of at least 5 directors, independent majority, at least one Kosovo resident. The proposed boards follow it but the article is not yet verified.')}</td></tr>
             <tr><td>{t('Systems (CBS, AML, reporting)')}</td><td><VerdictChip v="UNDETERMINED" /></td><td>{t('Vendor offer is non-binding; outsourcing approval and data location need confirmation.')}</td></tr>
             <tr><td>{t('Islamic products')}</td><td><VerdictChip v="UNDETERMINED" /></td><td>{t('Legal definition exists in 04/L-093; status under 08/L-304 and CBK permission unconfirmed.')}</td></tr>
           </tbody>

@@ -24,6 +24,7 @@
 15. Are Mudarabah investment accounts treated as deposits, and are they covered by the DIFK?
 16. Are there CBK expectations for Sharia governance, disclosure, and the risk-weighting of Murabaha inventory and Ijarah assets?
 17. Can the tax authority confirm the VAT and transfer-tax treatment of Murabaha?
+18. Law 08/L-304 caps income from non-financial services at 10% of prior-year net interest income. Are Murabaha sale margins and Ijarah rentals treated as financial-services income for that cap?
 
 ## E. Cards and payments
-18. Is a Visa Principal membership expected, or is an Affiliate/sponsored model acceptable to CBK? Are there requirements for card-processor outsourcing?
+19. Is a Visa Principal membership expected, or is an Affiliate/sponsored model acceptable to CBK? Are there requirements for card-processor outsourcing?

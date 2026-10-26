@@ -26,6 +26,7 @@
 15. A trajtohen llogaritë e investimit Mudaraba si depozita dhe a mbulohen nga FSDK-ja?
 16. A ka pritshmëri të BQK-së për qeverisjen e Sheriatit, transparencën dhe ponderimin e rrezikut të inventarit të Murabahas dhe të aseteve të Ixhares?
 17. A mund ta konfirmojë administrata tatimore trajtimin e TVSH-së dhe të tatimit në transferim për Murabahan?
+18. Ligji 08/L-304 i kufizon të ardhurat nga shërbimet jofinanciare në 10% të të ardhurave neto nga interesi të vitit paraprak. A trajtohen marzhat e shitjes së Murabahas dhe qiratë e Ixhares si të ardhura nga shërbimet financiare për këtë kufi?
 
 ## E. Kartelat dhe pagesat
-18. A pritet anëtarësim kryesor (Principal) në Visa, apo është i pranueshëm për BQK-në modeli i anëtarit të asociuar/sponsorizuar? A ka kërkesa për transferimin e procesimit të kartelave te palë të treta?
+19. A pritet anëtarësim kryesor (Principal) në Visa, apo është i pranueshëm për BQK-në modeli i anëtarit të asociuar/sponsorizuar? A ka kërkesa për transferimin e procesimit të kartelave te palë të treta?

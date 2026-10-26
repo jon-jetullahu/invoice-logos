@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.3.0 (2026-10-26)
+
+Follow-up research and corrections:
+
+* **Board composition** follows the CBK Corporate Governance Regulation as reported: an odd number of at least 5, independent majority, at least one Kosovo resident. The earlier 4-member boards were non-compliant.
+* **Tax-loss carry-forward** corrected to 4 tax periods (Law 06/L-105).
+* New requirements:
+  * REQ-LIC-006: preliminary approval is revoked after 1 year if conditions are not met.
+  * REQ-ACT-001: non-financial income is capped at 10% of net interest income (Law 08/L-304).
+* Deposit-insurance premium band 0.3%–1.5% added (Law 03/L-216).
+* New legal sources: the Albanian Gazette text of 08/L-304, the regulation on directors and senior managers, and Law 03/L-216.
+* 2023 sector benchmarks added (FSR 20 and press reports of CBK data).
+* Findings, readiness reports (EN/SQ), the unresolved-issues register and the CBK questions (new D18) updated.
+* GitHub Actions CI runs typecheck, engine/i18n tests, Python tests and the production build.
+
 ## 0.2.0 (2026-10-25)
 
 Bilingual platform (English / Shqip):

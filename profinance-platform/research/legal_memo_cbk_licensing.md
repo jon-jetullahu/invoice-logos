@@ -30,7 +30,7 @@ The platform treats the route as an **open blocking question** (REQ-LIC-001). Th
 2. **Application.** It needs the full application form and annexes from Chapter 5 of the Manual, plus proof that the non-refundable licensing fee has been paid. An application without the fee is incomplete and is not reviewed [S]. Older CBK FAQ material puts the fee at EUR 10,000 [S2, stale].
 3. **Preliminary approval or refusal** within **3 months** of a complete application, under the 2020 Regulation [S].
 4. **Meeting the preliminary-approval conditions.** These include depositing at least the minimum initial capital at CBK, recruiting the board and key function holders (who must be fit-and-proper approved), building systems and premises, and adopting the policy suite [S].
-5. **Final licence application and CBK pre-opening on-site examination**, followed by the final licence decision [S].
+5. **Final licence application and CBK pre-opening on-site examination**, followed by the final licence decision [S]. The preliminary approval is **revoked if the conditions are not met within one year** [S].
 6. **Before taking deposits:** membership of the deposit insurance fund (DIFK), payment-system (KIPS) participation and credit-registry connection [U].
 
 The platform's model timeline uses an editable **pre-operating period of 15 months** by default. That is an assumption, not a statutory figure.
@@ -57,14 +57,21 @@ The platform's model timeline uses an editable **pre-operating period of 15 mont
 | Single or connected exposure | ≤ 15% of Tier 1; above 10% needs board approval | [S] 2016 regulation |
 | Net open FX position | ≤ 15% of Tier 1 | [S] FSR |
 | Related-party limits | not obtained | — |
-| Deposit insurance | DIFK membership; risk-based premium on insured deposits; coverage EUR 5,000, planned increase to EUR 10,000 | [S] IMF 2026; premium rate not obtained |
+| Deposit insurance | DIFK membership; annual premium 0.3%–1.5% of average insured deposits; coverage EUR 5,000, planned increase to EUR 10,000 | [S] Law 03/L-216, IMF 2026; rate applied not obtained |
 
 ## 6. Governance (as reported)
 
-* Board of Directors under the 2019 Corporate Governance Regulation. The minimum size and the number of independent members were **not obtained**.
+* Board of Directors under the Corporate Governance Regulation: an **odd number of at least 5 members**, a **majority of independent non-executive directors**, and **at least one Kosovo resident**. The CEO sits ex officio without a vote and is not counted. Independent directors and their related persons may hold at most 1% of voting shares [S].
 * The board must have an **audit committee and a risk committee** [S].
 * CBK prior approval is required for qualifying shareholders (Art. 37 of 04/L-093) and for senior managers [S]. The qualifying-holding threshold under 08/L-304 has not been verified.
 * Independent internal audit, risk, compliance and AML functions are required [S/U].
+
+## 6a. Other provisions found in Law 08/L-304 (Albanian Gazette text, search extracts)
+
+* No person may conduct banking or financial activity without a valid licence issued by the CBK under this or another applicable law.
+* Income from non-financial services is limited to **10% of the previous year's total net interest income**. Murabaha sale margins and Ijarah rentals must be checked against this cap.
+* The law defines a "deposit equivalent to capital" (the cash part of minimum initial capital paid by a parent bank, relevant to branches).
+* The **minimum capital article and the transitional provisions have still not been obtained.**
 
 ## 7. Professional confirmations required
 
